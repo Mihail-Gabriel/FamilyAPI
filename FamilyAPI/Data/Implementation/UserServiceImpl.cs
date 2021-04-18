@@ -30,7 +30,7 @@ namespace FamilyAPI.Data.Implementation
         }
     
 
-    public async Task<User> ValidateUser(string userName, string password)
+    public async Task<User> ValidateUserAsync(string userName, string password)
         {
             Console.WriteLine(userName + "\n");
             Console.WriteLine(password);

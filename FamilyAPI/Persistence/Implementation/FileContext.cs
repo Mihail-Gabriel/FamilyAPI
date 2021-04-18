@@ -76,7 +76,7 @@ namespace FileData
             return null;
         }
         
-        public virtual void SaveChanges()
+        private void SaveChanges()
         {
             
             string jsonAdults = JsonSerializer.Serialize(Adults, new JsonSerializerOptions

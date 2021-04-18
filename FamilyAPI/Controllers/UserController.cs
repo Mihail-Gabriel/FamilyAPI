@@ -21,7 +21,7 @@ namespace FamilyAPI.Controllers
         {
             try
             {
-               User user = await  UserService.ValidateUser(userName,password);
+               User user = await  UserService.ValidateUserAsync(userName,password);
                return Ok(user);
             }
             catch (Exception e)
