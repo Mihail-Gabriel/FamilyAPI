@@ -33,7 +33,6 @@ namespace FamilyAPI.Controllers
         }
 
         //The method for getting the adult from the service works, as it shows the person that it receives.
-        //The bug that instantly switches the view to the initial table is still there as I haven't been able to solve it.
         [HttpGet]
         [Route("{name}")]
         public async Task<ActionResult<IList<Adult>>> GetAdultsByCriteriaAsync([FromRoute] string name)

@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.FamilyAPI.iml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Constantin Mihail\RiderProjects\FamilyAPI\.idea\.idea.FamilyAPI.dir\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

@@ -32,7 +32,7 @@ namespace FamilyAPI
         {
             services.AddControllers();
             services.AddScoped<IUserService, UserServiceImpl>();
-            services.AddScoped<IFileContext, FileContext>();
+            services.AddScoped<IFileContext, DatabaseContext>();
             services.AddScoped<IFamilyService, FamilyService>();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "FamilyAPI", Version = "v1"}); });
         }

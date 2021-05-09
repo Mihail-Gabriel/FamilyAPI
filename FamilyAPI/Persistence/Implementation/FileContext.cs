@@ -4,11 +4,12 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 using FamilyAPI.Data;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace FileData
 {
-    public class FileContext : IFileContext
+    public class FileContext
     {
       
         private IList<Adult> Adults { get;  set; }
@@ -32,7 +33,7 @@ namespace FileData
             Boolean flag = true;
             foreach (Adult element in Adults)
             {
-                if (element.Id == adult.Id)
+                if (element.Persona.Id == adult.Persona.Id)
                 {
                     flag = false;
                 }
@@ -67,7 +68,7 @@ namespace FileData
 
             foreach (Adult adult in Adults)
             {
-                if (adult.FirstName.Equals(Name))
+                if (adult.Persona.FirstName.Equals(Name))
                 {
                     helper.Add(adult);
                     return helper;

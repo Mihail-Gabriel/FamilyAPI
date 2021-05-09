@@ -30,6 +30,21 @@ namespace FamilyAPI.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult> RegisterUserAsync([FromBody] User user)
+        {
+            try
+            {
+                await UserService.RegisterUserAsync(user);
+                return Ok(user);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
         
     }
 }

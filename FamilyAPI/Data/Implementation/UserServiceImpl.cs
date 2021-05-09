@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FileData;
 using Models;
 
 namespace FamilyAPI.Data.Implementation
@@ -9,9 +10,10 @@ namespace FamilyAPI.Data.Implementation
     public class UserServiceImpl : IUserService
     {
         private List<User> users;
-
+        private IUserDatabaseContext databaseContext;
         public UserServiceImpl()
         {
+            databaseContext = new UserDatabaseContext();
             users = new[]
             {
                 new User
@@ -32,21 +34,15 @@ namespace FamilyAPI.Data.Implementation
 
     public async Task<User> ValidateUserAsync(string userName, string password)
         {
-            Console.WriteLine(userName + "\n");
+            Console.WriteLine(userName);
             Console.WriteLine(password);
-            User first =  users.FirstOrDefault(user => user.UserName.Equals(userName));
-            if (first == null)
-            {
-                throw new Exception("User not found");
-            }
-
-            if (!first.Password.Equals(password))
-            {
-                throw new Exception("Incorrect password");
-            }
-
-            return first;
+            return await databaseContext.ValidateUserAsync(userName, password);
         }
+
+    public async Task RegisterUserAsync(User user)
+    {
+        await databaseContext.RegisterUserAsync(user);
+    }
     }
     
 }
